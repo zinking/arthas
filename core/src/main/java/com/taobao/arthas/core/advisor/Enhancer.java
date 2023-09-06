@@ -331,8 +331,8 @@ public class Enhancer implements ClassFileTransformer {
             if (null == clazz) {
                 removeFlag = true;
             } else if (isSelf(clazz)) {
-                filteredClasses.add(new Pair<Class<?>, String>(clazz, "class loaded by arthas itself"));
-                removeFlag = true;
+                // filteredClasses.add(new Pair<Class<?>, String>(clazz, "class loaded by arthas itself"));
+                removeFlag = false;
             } else if (isUnsafeClass(clazz)) {
                 filteredClasses.add(new Pair<Class<?>, String>(clazz, "class loaded by Bootstrap Classloader, try to execute `options unsafe true`"));
                 removeFlag = true;
